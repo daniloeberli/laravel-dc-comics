@@ -19,6 +19,7 @@
         <th scope="col">Serie</th>
         <th scope="col">Data</th>
         <th scope="col">Tipologia</th>
+        <th scope="col">Action</th>
         {{-- <th scope="col">Artisti</th>
         <th scope="col">Scrittori</th> --}}
       </tr>
@@ -32,6 +33,7 @@
             <td>{{ $comic->series }}</td>
             <td>{{ $comic->sale_date }}</td>
             <td>{{ $comic->type }}</td>
+            <td><a href="{{ route('comics.show', $comic->id) }}" class="btn btn-primary btn-sm">Dettagli</a></td>
             {{-- <td>{{ $comic->series }}</td>
             <td>{{ $comic->series }}</td> --}}
           </tr>
