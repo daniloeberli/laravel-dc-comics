@@ -6,7 +6,11 @@
 
 @section('page.main')
     <div class="container">
-        {{$comic->description}}
+        <ul>
+            <li>{{$comic->description}}</li>
+            <li>{{$comic->writers}}</li>
+            <li>{{$comic->artists}}</li>
+        </ul>
     </div>
     <div class="container">
         <a href="{{route('comics.index')}}">Go back</a>

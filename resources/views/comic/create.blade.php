@@ -40,6 +40,14 @@
                 <label for="type">tipologia</label>
                 <input type="text" class="form-control" id="type" name="type">
             </div>
+            <div class="form-group">
+                <label for="artists">Artisti</label>
+                <textarea class="form-control" id="artists" name="artists" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="writers">Scrittori</label>
+                <textarea class="form-control" id="writers" name="writers" rows="3"></textarea>
+            </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
