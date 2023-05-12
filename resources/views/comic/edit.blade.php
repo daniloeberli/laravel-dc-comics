@@ -12,44 +12,55 @@
     </div>
 
     <div class="container">
+        <div>
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+        </div>
         <form action="{{route('comics.update', $comic->id)}}" method="POST">
             @csrf
             @method('PUT')
             <div class="form-group">
                 <label for="title">titolo</label>
-                <input type="text" value="{{$comic->title}}" class="form-control" id="title" name="title">
+                <input type="text" value="{{old('title',$comic->title)}}" class="form-control" id="title" name="title">
             </div>
             <div class="form-group">
                 <label for="description">Descrizione</label>
-                <textarea class="form-control" id="description" name="description" rows="3">{{ strip_tags( $comic->description ) }}</textarea>
+                <textarea class="form-control" id="description" name="description" rows="3">{{ old( 'description',$comic->description ) }}</textarea>
             </div>
             <div class="form-group">
                 <label for="thumb">immagine</label>
-                <input type="text" value="{{$comic->thumb}}" class="form-control" id="thumb" name="thumb">
+                <input type="text" value="{{old('thumb',$comic->thumb)}}" class="form-control" id="thumb" name="thumb">
             </div>
             <div class="form-group">
                 <label for="price">prezzo</label>
-                <input type="text" value="{{$comic->price}}" class="form-control" id="price" name="price">
+                <input type="text" value="{{old('price',$comic->price)}}" class="form-control" id="price" name="price">
             </div>
             <div class="form-group">
                 <label for="series">serie</label>
-                <input type="text" value="{{$comic->series}}" class="form-control" id="series" name="series">
+                <input type="text" value="{{old('series',$comic->series)}}" class="form-control" id="series" name="series">
             </div>
             <div class="form-group">
                 <label for="sale_date">data</label>
-                <input type="date" value="{{$comic->sale_date}}" class="form-control" id="sale_date" name="sale_date">
+                <input type="date" value="{{old('sale_date',$comic->sale_date)}}" class="form-control" id="sale_date" name="sale_date">
             </div>
             <div class="form-group">
                 <label for="type">tipologia</label>
-                <input type="text" value="{{$comic->type}}" class="form-control" id="type" name="type">
+                <input type="text" value="{{old('type',$comic->type)}}" class="form-control" id="type" name="type">
             </div>
             <div class="form-group">
                 <label for="artists"></label>
-                <textarea class="form-control" id="artists" name="artists" rows="3">{{ strip_tags( $comic->artists ) }}</textarea>
+                <textarea class="form-control" id="artists" name="artists" rows="3">{{ old('artists',$comic->artists ) }}</textarea>
             </div>
             <div class="form-group">
                 <label for="writers"></label>
-                <textarea class="form-control" id="writers" name="writers" rows="3">{{ strip_tags( $comic->writers ) }}</textarea>
+                <textarea class="form-control" id="writers" name="writers" rows="3">{{ old('writers',$comic->writers ) }}</textarea>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
